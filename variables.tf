@@ -17,3 +17,14 @@ variable "name" {
   description = "name to pass to Name tag"
   default = "Provisioned by Terraform"
 }
+variable "access_key"{
+  description = "aws_access_key"
+  default = " "
+
+}
+
+variable "aws_secret_key" {
+  description = "aws_secret_key"
+  default = " "
+
+}
