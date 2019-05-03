@@ -17,7 +17,7 @@ variable "name" {
   description = "name to pass to Name tag"
   default = "Provisioned by Terraform"
 }
-variable "access_key"{
+variable "aws_access_key" {
   description = "aws_access_key"
   default = " "
 
