@@ -14,7 +14,7 @@ resource "aws_instance" "ubuntu" {
   tags {
     Name = "${var.name}"
   }
-
+}
 resource "aws_elb" "matts-elb" {
     name = "matts_loadbalancer"
     connection_draining = true
@@ -38,4 +38,4 @@ resource "aws_elb" "matts-elb" {
 
 }
 
-}
+
