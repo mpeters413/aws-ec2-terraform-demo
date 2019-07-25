@@ -16,7 +16,7 @@ resource "aws_instance" "ubuntu" {
   }
 }
 resource "aws_elb" "matts-elb" {
-    name = "matts_loadbalancer"
+    name = "matts-loadbalancer"
     connection_draining = true
     connection_draining_timeout = 400
     subnets = ["${split(",", var.subnets)}"]
