@@ -15,6 +15,16 @@ variable "instance_type" {
 
 variable "name" {
   description = "name to pass to Name tag"
-  default = "Provisioned by Terraform"
+  default = "matts_demo_instance"
 }
 
+*******************
+variable "subnets" {
+  description = "subnets"
+  default = "subnet-0650c811e6d317a8b"
+}
+
+variable "health_check" {
+  default = "HTTP:8200/v1/sys/health?standbyok=true&perfstandbyok=true"
+  description = "Health check for load balancer"
+}

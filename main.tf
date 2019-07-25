@@ -14,4 +14,26 @@ resource "aws_instance" "ubuntu" {
   tags {
     Name = "${var.name}"
   }
+
+resource "aws_elb" "matts-elb" {
+    name = "${var.vault_name_prefix}-elb"
+    connection_draining = true
+    connection_draining_timeout = 400
+    subnets = "${var.subnets}"
+
+    listener {
+        instance_port = 8200
+        instance_protocol = "tcp"
+        lb_port = 8200
+        lb_protocol = "tcp"
+    }
+
+    health_check {
+        healthy_threshold = 2
+        unhealthy_threshold = 3
+        timeout = 5
+        target = "${var.health_check}"
+        interval = 15
+    }
+
 }
