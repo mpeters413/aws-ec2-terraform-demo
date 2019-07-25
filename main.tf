@@ -37,3 +37,5 @@ resource "aws_elb" "matts-elb" {
     }
 
 }
+
+}
