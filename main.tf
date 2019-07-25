@@ -19,7 +19,7 @@ resource "aws_elb" "matts-elb" {
     name = "matts_loadbalancer"
     connection_draining = true
     connection_draining_timeout = 400
-    subnets = "${var.subnets}"
+    subnets = ["${split(",", var.subnets)}"]
 
     listener {
         instance_port = 8200
