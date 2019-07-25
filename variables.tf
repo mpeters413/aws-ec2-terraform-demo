@@ -18,7 +18,8 @@ variable "name" {
   default = "matts_demo_instance"
 }
 
-*******************
+////////////////////
+
 variable "subnets" {
   description = "subnets"
   default = "subnet-0650c811e6d317a8b"
