@@ -15,27 +15,6 @@ resource "aws_instance" "ubuntu" {
     Name = "${var.name}"
   }
 }
-resource "aws_elb" "matts-elb" {
-    name = "matts-loadbalancer"
-    connection_draining = true
-    connection_draining_timeout = 400
-    subnets = ["${split(",", var.subnets)}"]
 
-    listener {
-        instance_port = 8200
-        instance_protocol = "tcp"
-        lb_port = 8200
-        lb_protocol = "tcp"
-    }
-
-    health_check {
-        healthy_threshold = 2
-        unhealthy_threshold = 3
-        timeout = 5
-        target = "${var.health_check}"
-        interval = 15
-    }
-
-}
 
 
