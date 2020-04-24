@@ -29,3 +29,13 @@ variable "health_check" {
   default = "HTTP:8200/v1/sys/health?standbyok=true&perfstandbyok=true"
   description = "Health check for load balancer"
 }
+
+variable "AWS_ACCESS_KEY_ID" {
+  default = ""
+  description = "aws access key"
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  default = ""
+  description = "aws access key"
+}
