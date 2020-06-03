@@ -7,10 +7,6 @@ variable "vault_addr" {
   default = ""
   }
 
-provider "aws" {
-  region = "us-east-1"
-  }
-
 # Set VAULT_TOKEN environment variable
 provider "vault" {
   address = "${var.vault_addr}"
@@ -23,3 +19,12 @@ data "vault_aws_access_credentials" "aws_creds" {
   backend = "aws-tf"
   role = "deploy"
 }
+
+provider "aws" {
+  region = "us-east-1"
+  access_key = "${data.vault_aws_access_credentials.aws_creds.access_key}"
+  secret_key = "${data.vault_aws_access_credentials.aws_creds.secret_key}"
+}
+
+
+
