@@ -9,6 +9,7 @@ variable "vault_addr" {
 
 provider "aws" {
   region = "us-east-1"
+  }
 
 # Set VAULT_TOKEN environment variable
 provider "vault" {
