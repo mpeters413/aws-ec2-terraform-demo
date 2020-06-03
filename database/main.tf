@@ -7,6 +7,9 @@ variable "vault_addr" {
   default = ""
   }
 
+provider "aws" {
+  region = "us-east-1"
+
 # Set VAULT_TOKEN environment variable
 provider "vault" {
   address = "${var.vault_addr}"
