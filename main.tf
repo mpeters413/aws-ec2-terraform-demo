@@ -2,10 +2,23 @@ terraform {
   required_version = ">= 0.11.0"
 }
 
+# Set VAULT_TOKEN environment variable
+provider "vault" {
+  address = "${var.vault_addr}"
+  max_lease_ttl_seconds = 1500
+}
+
+# AWS credentials from Vault
+# Must set up AWS backend in Vault on path aws with role deploy
+data "vault_aws_access_credentials" "aws_creds" {
+  backend = "aws-tf"
+  role = "deploy"
+}
+
 provider "aws" {
   region = "${var.aws_region}"
-  access_key = "${var.AWS_ACCESS_KEY_ID}"
-  secret_key = "${var.AWS_SECRET_ACCESS_KEY}"
+  access_key = "${data.vault_aws_access_credentials.aws_creds.access_key}"
+  secret_key = "${data.vault_aws_access_credentials.aws_creds.secret_key}"
 }
 
 resource "aws_instance" "ubuntu" {
