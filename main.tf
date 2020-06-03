@@ -2,6 +2,11 @@ terraform {
   required_version = ">= 0.11.0"
 }
 
+variable "vault_addr" {
+  description = "vault address"
+  default = ""
+  }
+
 # Set VAULT_TOKEN environment variable
 provider "vault" {
   address = "${var.vault_addr}"
