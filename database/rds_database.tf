@@ -3,7 +3,7 @@ resource "aws_db_instance" "default" {
   storage_type         = "gp2"
   engine               = "mysql"
   engine_version       = "5.7"
-  instance_class       = "db.t2.medium"
+  instance_class       = "db.t2.small"
   name                 = "mydb"
   username             = "foo"
   password             = "foobarbaz"
