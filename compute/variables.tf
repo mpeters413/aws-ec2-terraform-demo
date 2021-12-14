@@ -22,7 +22,7 @@ variable "name" {
 
 variable "subnets" {
   description = "subnets"
-  default = "subnet-0650c811e6d317a8b"
+  default = "subnet-e80da4d9"
 }
 
 variable "health_check" {
