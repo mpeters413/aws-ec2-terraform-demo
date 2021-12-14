@@ -19,7 +19,7 @@ provider "vault" {
 data "vault_aws_access_credentials" "aws_creds" {
   backend = "aws-tf"
   role = "deploy"
-  type = "iam"
+  type = "creds"
 }
 
 provider "aws" {
