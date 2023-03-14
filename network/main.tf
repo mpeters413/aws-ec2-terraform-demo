@@ -16,8 +16,9 @@ provider "vault" {
 # AWS credentials from Vault
 # Must set up AWS backend in Vault on path aws with role deploy
 data "vault_aws_access_credentials" "aws_creds" {
-  backend = "aws-tf"
-  role = "deploy"
+  backend = "aws"
+  role = "aws-deploy"
+  type = "creds"
 }
 
 provider "aws" {
