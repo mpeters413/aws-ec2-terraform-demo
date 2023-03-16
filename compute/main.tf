@@ -28,9 +28,9 @@ provider "aws" {
   secret_key = "${data.vault_aws_access_credentials.aws_creds.secret_key}"
 }
 
- // resource "aws_instance" "ubuntu" {
- // ami           = "${var.ami_id}"
- // instance_type = "${var.instance_type}"
- // availability_zone = "${var.aws_region}a"
- // key_name = "mattpeterspersonal"
-//}
+  resource "aws_instance" "ubuntu" {
+  ami           = "${var.ami_id}"
+  instance_type = "${var.instance_type}"
+  availability_zone = "${var.aws_region}a"
+  key_name = "mattpeterspersonal"
+}
