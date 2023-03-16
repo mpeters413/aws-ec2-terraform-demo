@@ -33,4 +33,4 @@ provider "aws" {
  // instance_type = "${var.instance_type}"
  // availability_zone = "${var.aws_region}a"
  // key_name = "mattpeterspersonal"
-}
+//}
