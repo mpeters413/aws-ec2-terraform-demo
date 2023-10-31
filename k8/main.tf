@@ -19,8 +19,12 @@ data "vault_aws_access_credentials" "aws_creds" {
 
 
 provider "aws" {
-  region = var.region
+  region = "${var.aws_region}"
+  access_key = "${data.vault_aws_access_credentials.aws_creds.access_key}"
+  secret_key = "${data.vault_aws_access_credentials.aws_creds.secret_key}"
 }
+
+
 
 # Filter out local zones, which are not currently supported 
 # with managed node groups
