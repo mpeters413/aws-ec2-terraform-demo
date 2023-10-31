@@ -1,3 +1,23 @@
+variable "vault_addr" {
+  description = "vault address"
+  default = ""
+  }
+
+# Set VAULT_TOKEN environment variable
+provider "vault" {
+  address = "${var.vault_addr}"
+  max_lease_ttl_seconds = 1500
+}
+
+# AWS credentials from Vault
+# Must set up AWS backend in Vault on path aws with role deploy
+data "vault_aws_access_credentials" "aws_creds" {
+  backend = "aws"
+  role = "aws-deploy"
+  type = "creds"
+}
+
+
 provider "aws" {
   region = var.region
 }
@@ -10,6 +30,8 @@ data "aws_availability_zones" "available" {
     values = ["opt-in-not-required"]
   }
 }
+
+
 
 locals {
   cluster_name = "education-eks-${random_string.suffix.result}"
