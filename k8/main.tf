@@ -19,7 +19,7 @@ data "vault_aws_access_credentials" "aws_creds" {
 
 
 provider "aws" {
-  region = "us-east-2"
+  region = "us-east-1"
   access_key = "data.vault_aws_access_credentials.aws_creds.access_key"
   secret_key = "data.vault_aws_access_credentials.aws_creds.secret_key"
 }
