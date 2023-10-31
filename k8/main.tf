@@ -5,7 +5,7 @@ variable "vault_addr" {
 
 # Set VAULT_TOKEN environment variable
 provider "vault" {
-  address = "var.vault_addr"
+  address = var.vault_addr
   max_lease_ttl_seconds = 1500
 }
 
