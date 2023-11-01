@@ -147,6 +147,10 @@ connection {
       host = self.public_ip
   }
 
+provisioner "local-exec" {
+   command = "echo ${self.private_ip} >> private_ip.txt"
+ }
+
  provisioner "remote-exec" {
     inline = [
 	  "sudo apt-get update",
