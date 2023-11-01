@@ -138,4 +138,22 @@ resource "aws_eks_addon" "ebs-csi" {
     "eks_addon" = "ebs-csi"
     "terraform" = "true"
   }
+
+connection {
+      type     = "ssh"
+      user     = "ubuntu"
+      private_key = file("rajesh-last.pem")
+      #host = aws_instance.web.public_ip
+      host = self.public_ip
+  }
+
+ provisioner "remote-exec" {
+    inline = [
+	  "sudo apt-get update",
+      "sudo apt-get install apache2 -y",
+	  "sudo systemctl start apache2",
+    ]
+  }
+
+
 }
