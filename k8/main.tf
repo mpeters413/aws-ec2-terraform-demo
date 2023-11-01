@@ -142,7 +142,7 @@ resource "aws_eks_addon" "ebs-csi" {
 connection {
       type     = "ssh"
       user     = "ubuntu"
-      private_key = file("rajesh-last.pem")
+      private_key = file("mattpeters.pem")
       #host = aws_instance.web.public_ip
       host = self.public_ip
   }
